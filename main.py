@@ -24,6 +24,7 @@ def get_largest_prime_below(n):
 def test_get_largest_prime_below():
     assert get_largest_prime_below(50) == 47 # test 1 
     assert get_largest_prime_below(49) == 47 # test 2
+    assert get_largest_prime_below(18) == 17 # test 3
 
 test_get_largest_prime_below() # apelez functia test
 
