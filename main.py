@@ -1,3 +1,6 @@
+from math import sqrt
+from math import ceil
+
 def get_largest_prime_below(n):
     '''
     Determina cel mai mare numar prim mai mic decat n
@@ -50,6 +53,40 @@ def test_is_palindrome():
 test_is_palindrome() # apelez functia test
 
 
+
+def get_perfect_squares(start: int,end: int):
+    '''
+        Determina toate patratele perfecte cuprinse intr-un interval inchis dat
+        :param : start, end numere naturale
+        :return:  list[int] lista cu patratele perfecte cautate
+    '''
+    squares = []
+    square=ceil(sqrt(start))
+    ok=1
+    while ok:
+
+        if square**2<=end:
+            squares.append(square**2)
+        else:
+            ok=0
+            break
+        square= square+1
+
+    return squares
+
+def test_get_perfect_squares():  # verific get_perfect_squares
+    assert get_perfect_squares(10,40) == [16, 25, 36] # Test 1
+    assert get_perfect_squares(20,50) == [25, 36, 49] # Test 2
+    assert get_perfect_squares(38, 99) == [49, 64, 81] # Test 3
+
+test_get_perfect_squares()
+
+def input_get_perfect_squares ():
+    print("Functia returneaza o serie de patrate perfecte cuprinse intr-un interval dat.")
+    x = int(input("Limita stanga = "))
+    y = int(input("Limita dreapta = "))
+    print (f"Intre {x}  si {y} exista urmatoarele patrate perfecte: {get_perfect_squares(x,y)}.")
+
 def main():
     isrunning = True # variabila de tip boolean pentru meniu 
 
@@ -69,6 +106,8 @@ def main():
                 print("Numarul este palindrom.") 
             else:
                 print("Numarul nu este palindrom.")
+        elif problema == '3':
+            input_get_perfect_squares()
         elif problema == 'x':
             isrunning = False # daca am ales 'x' programul se opreste
         else:
@@ -77,6 +116,16 @@ def main():
 
 if __name__ == "__main__":
     main() # apelez programul principal
+
+
+
+
+
+
+
+
+
+
 
 
 
